@@ -1,17 +1,16 @@
 import React from 'react';
 import { WORD_LENGTH } from '../../constants';
 
-function GuessInput({addGuess}) {
-  const [guess, setGuess] = React.useState('');
+function GuessInput({addGuess, disabled}) {
+  const [tentativeGuess, setTentativeGuess] = React.useState('');
 
   return (
     <form
       className="guess-input-wrapper"
       onSubmit={event => {
         event.preventDefault();
-        console.log("Your guess is:", guess);
-        addGuess(guess);
-        setGuess("");
+        addGuess(tentativeGuess);
+        setTentativeGuess("");
       }}
     >
       <label htmlFor="guess-input">Enter guess:</label>
@@ -21,10 +20,11 @@ function GuessInput({addGuess}) {
         maxLength={WORD_LENGTH}
         pattern={`[A-Za-z]{${WORD_LENGTH}}`}
         title={`The length of the word MUST be ${WORD_LENGTH}`}
+        disabled={disabled}
         id="guess-input"
         type="text"
-        value={guess}
-        onChange={event => setGuess(event.target.value.toUpperCase())}
+        value={tentativeGuess}
+        onChange={event => setTentativeGuess(event.target.value.toUpperCase())}
       />
     </form>
   );
