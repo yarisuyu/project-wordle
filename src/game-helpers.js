@@ -24,10 +24,12 @@ export function checkGuess(guess, answer) {
         letter: guessChars[i],
         status: 'correct',
       };
-      answerChars[i] = SOLVED_CHAR;
+      // answerChars[i] = SOLVED_CHAR;
       guessChars[i] = SOLVED_CHAR;
     }
   }
+
+  console.log("Check guess, step 1 result", result);
 
   // Step 2: look for misplaced letters. If it's not misplaced,
   // it must be incorrect.
@@ -42,14 +44,20 @@ export function checkGuess(guess, answer) {
     );
     if (misplacedIndex >= 0) {
       status = 'misplaced';
-      answerChars[misplacedIndex] = SOLVED_CHAR;
+      console.log("Check guess, step 2 letter misplaced", answerChars[misplacedIndex], 'guessChar', guessChars[i]);
+      // answerChars[misplacedIndex] = SOLVED_CHAR;
     }
+
 
     result[i] = {
       letter: guessChars[i],
       status,
     };
+
+    console.log("Check guess, step 2 result[i]", result[i]);
   }
+
+  console.log("Check guess, final result", result);
 
   return result;
 }
