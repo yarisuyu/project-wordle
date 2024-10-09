@@ -110,6 +110,7 @@ h1 {
 .keyboard {
   text-align: center;
   min-width: 100%;
+  margin: 0 -100px;
 }
 
 .keyboard-row {
