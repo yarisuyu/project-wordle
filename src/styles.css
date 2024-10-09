@@ -107,6 +107,24 @@ h1 {
   font-size: 2rem;
 }
 
+.keyboard {
+  text-align: center;
+  min-width: 100%;
+}
+
+.keyboard-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 6px;
+  margin-bottom: 6px;
+  justify-content: center;
+}
+
+.letter {
+  width: 10%;
+}
+
 /*
   Round the corners for the 4 cells at the very corners of
   the game board
